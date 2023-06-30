@@ -1,9 +1,7 @@
 ﻿namespace BackendMafia.Models
 {
-    public class MafiaFamily
+    public class AddMafiaFamilyRequest
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         public string CollectionFamily { get; set; }

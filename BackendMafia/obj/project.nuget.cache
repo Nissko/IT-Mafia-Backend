@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zTGcDabp8a+N2PM7HxXEmf4AdUneJeTghvaRlwZmPCiTMmhctj5Mc6jc9X8ZL1Z6LHH0pt3jVgHqxz3Ul5eDbA==",
+  "dgSpecHash": "x0VZtdNRuNDnIsTUxx9m4VJixFNP5x8jkce3n1muExSedSq321XbmteQOb7ZD5u8E5Ya/0sh8arnJN9yYCIk9A==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.8\\microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.8\\microsoft.entityframeworkcore.analyzers.7.0.8.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.8\\microsoft.entityframeworkcore.design.7.0.8.nupkg.sha512",
+    "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.8\\microsoft.entityframeworkcore.inmemory.7.0.8.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.8\\microsoft.entityframeworkcore.relational.7.0.8.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.8\\microsoft.entityframeworkcore.tools.7.0.8.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
