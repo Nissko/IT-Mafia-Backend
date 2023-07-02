@@ -23,6 +23,5 @@ namespace BackendMafia.Models
 
         public int MafiaFamiliesId { get; set; }
 
-        public List<MafiaCompany> MafiaCompanies { get; set; }
     }
 }
