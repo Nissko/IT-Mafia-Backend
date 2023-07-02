@@ -10,5 +10,11 @@ namespace BackendMafia.Data
         }
 
         public DbSet<MafiaFamily> MafiaFamilies { get; set; }
+
+        public DbSet<MafiaMember> MafiaMembers { get; set; }
+
+        public DbSet<MafiaCompany> MafiaCompanies { get; set; }
+        
+        public DbSet<FinancialReports> FinancialReports { get; set; }
     }
 }

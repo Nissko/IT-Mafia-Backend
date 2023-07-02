@@ -1,13 +1,17 @@
-﻿namespace BackendMafia.Models
+﻿using System.Collections.ObjectModel;
+
+namespace BackendMafia.Models
 {
     public class MafiaFamily
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public string CollectionFamily { get; set; }
+        public string Description { get; set; }
 
-        public string OrganisationCollection { get; set; }
+        public List<MafiaMember> MafiaMembers { get; set; }
+
+        public List<MafiaCompany> MafiaCompanies { get; set; }
     }
 }
