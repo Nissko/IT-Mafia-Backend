@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BackendMafia.Data.Migrations
 {
     [DbContext(typeof(MafiaAPIDb))]
-    [Migration("20230702115904_MafiaFamily")]
+    [Migration("20230702121701_MafiaFamily")]
     partial class MafiaFamily
     {
         /// <inheritdoc />
@@ -36,9 +36,8 @@ namespace BackendMafia.Data.Migrations
                     b.Property<int>("CompaniesId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Expense")
                         .HasColumnType("integer");
@@ -136,9 +135,8 @@ namespace BackendMafia.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Birthday")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Login")
                         .IsRequired()

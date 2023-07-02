@@ -1,10 +1,13 @@
-﻿namespace BackendMafia.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BackendMafia.Models
 {
     public class FinancialReports
     {
         public int Id { get; set; }
 
-        public string Date { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
 
         public int Revenue { get; set; }
 

@@ -1,4 +1,6 @@
-﻿namespace BackendMafia.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BackendMafia.Models
 {
     public class MafiaMember
     {
@@ -10,7 +12,8 @@
 
         public string Patronymic { get; set; }
 
-        public string Birthday { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Birthday { get; set; }
 
         public int Phone { get; set; }
 
