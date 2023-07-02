@@ -10,5 +10,8 @@ namespace BackendMafia.Models
 
         public string Description { get; set; }
 
+        public List<MafiaMember> MafiaMembers { get; set; }
+
+        public List<MafiaCompany> MafiaCompanies { get; set; }
     }
 }

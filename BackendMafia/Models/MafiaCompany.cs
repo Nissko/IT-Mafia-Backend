@@ -16,5 +16,6 @@
 
         public int MafiaMembersId { get; set; }
 
+        public List<FinancialReports> FinancialReports { get; set; }
     }
 }
