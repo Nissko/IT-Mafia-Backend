@@ -6,11 +6,12 @@ using System.Xml.Linq;
 namespace BackendMafia.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class MafiaFamilyController : Controller
     {
         private readonly MafiaAPIDb dbMafiaFamily;
 
+        //Show All
         public MafiaFamilyController(MafiaAPIDb dbMafiaFamily) 
         {
             this.dbMafiaFamily = dbMafiaFamily;
@@ -22,15 +23,14 @@ namespace BackendMafia.Controllers
             return Ok(dbMafiaFamily.MafiaFamilies.ToList());
         }
 
+        //Store
         [HttpPost]
-        public IActionResult AddMafiaFamily(AddMafiaFamilyRequest AddMafiaFamilyRequest)
+        public IActionResult AddMafiaFamily(MafiaFamily AddMafiaFamilyRequest)
         {
             var MafiaFamily = new MafiaFamily()
             {
-                Id = Guid.NewGuid(),
                 Name = AddMafiaFamilyRequest.Name,
-                CollectionFamily = AddMafiaFamilyRequest.CollectionFamily,
-                OrganisationCollection = AddMafiaFamilyRequest.OrganisationCollection
+                Description = AddMafiaFamilyRequest.Description,
             };
 
             dbMafiaFamily.MafiaFamilies.Add(MafiaFamily);

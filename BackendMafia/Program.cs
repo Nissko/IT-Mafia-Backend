@@ -10,7 +10,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<MafiaAPIDb>(options => options.UseInMemoryDatabase("ContactsDb"));
 //RegisterDbContext
 builder.Services.AddDbContext<MafiaAPIDb>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 

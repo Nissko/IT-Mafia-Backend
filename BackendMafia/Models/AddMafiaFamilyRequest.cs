@@ -4,8 +4,8 @@
     {
         public string Name { get; set; }
 
-        public string CollectionFamily { get; set; }
-
-        public string OrganisationCollection { get; set; }
+        public string Description { get; set; }
     }
 }
+
+//Спросить у Петра про отдельный класс
