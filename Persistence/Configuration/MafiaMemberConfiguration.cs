@@ -24,6 +24,10 @@ namespace Persistence.Configuration
             builder.Property(t => t.Phone).IsRequired();
             builder.Property(t => t.Login).IsRequired();
             builder.Property(t => t.Password).IsRequired();
+
+            builder.HasMany(t => t.MafiaCompanies)
+               .WithOne()
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

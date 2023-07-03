@@ -22,5 +22,7 @@ namespace Domain.Entities
 
         public int MafiaMembersId { get; private set; }
 
+        public virtual ICollection<FinancialReports> FinancialReports { get; private set; }
+
     }
 }

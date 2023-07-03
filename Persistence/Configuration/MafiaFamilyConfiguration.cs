@@ -19,7 +19,14 @@ namespace Persistence.Configuration
 
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Description).IsRequired();
-            
+
+            builder.HasMany(t => t.MafiaMembers)
+               .WithOne()
+               .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(t => t.MafiaCompanies)
+               .WithOne()
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
