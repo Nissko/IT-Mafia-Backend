@@ -1,6 +1,6 @@
-﻿using BackendMafia.Data;
-using BackendMafia.Models;
+﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Persistence;
 
 namespace BackendMafia.Controllers
 {
@@ -8,10 +8,10 @@ namespace BackendMafia.Controllers
     [Route("[controller]")]
     public class FinancialReportsController : Controller
     {
-        private readonly MafiaAPIDb dbFinancialReports;
+        private readonly MafiaApiDbContext dbFinancialReports;
 
         //Show All
-        public FinancialReportsController(MafiaAPIDb dbFinancialReports)
+        public FinancialReportsController(MafiaApiDbContext dbFinancialReports)
         {
             this.dbFinancialReports = dbFinancialReports;
         }
@@ -26,7 +26,8 @@ namespace BackendMafia.Controllers
         [HttpPost]
         public IActionResult AddFinancialReports(FinancialReports AddFinancialReportsRequest)
         {
-            var FinancialReports = new FinancialReports()
+
+            var FinancialReportsAdd = new FinancialReports()
             {
                 Date = AddFinancialReportsRequest.Date,
                 Revenue = AddFinancialReportsRequest.Revenue,
@@ -36,10 +37,10 @@ namespace BackendMafia.Controllers
                 CompaniesId = AddFinancialReportsRequest.CompaniesId,
             };
 
-            dbFinancialReports.FinancialReports.Add(FinancialReports);
+            dbFinancialReports.FinancialReports.Add(FinancialReportsAdd);
             dbFinancialReports.SaveChanges();
 
-            return Ok(FinancialReports);
+            return Ok(FinancialReportsAdd);
         }
     }
 }

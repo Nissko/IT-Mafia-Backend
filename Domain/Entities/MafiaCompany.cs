@@ -8,19 +8,21 @@ namespace Domain.Entities
 {
     public class MafiaCompany
     {
-        public int Id { get; private set; }
+        public int Id { get; /*private*/ set; }
 
-        public string Name { get; private set; }
+        public string Name { get; /*private*/ set; }
 
-        public string Address { get; private set; }
+        public string Address { get; /*private*/ set; }
 
-        public string ContactPhone { get; private set; }
+        public string ContactPhone { get; /*private*/ set; }
 
-        public string BusinessType { get; private set; }
+        public string BusinessType { get; /*private*/ set; }
 
-        public int MafiaFamiliesId { get; private set; }
+        public int MafiaFamiliesId { get; /*private*/ set; }
 
-        public int MafiaMembersId { get; private set; }
+        public int MafiaMembersId { get; /*private*/ set; }
+
+        public virtual ICollection<FinancialReports> FinancialReports { get; /*private*/ set; }
 
     }
 }
