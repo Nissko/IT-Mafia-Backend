@@ -26,6 +26,7 @@ namespace BackendMafia.Controllers
         [HttpPost]
         public IActionResult AddFinancialReports(FinancialReports AddFinancialReportsRequest)
         {
+
             var FinancialReportsAdd = new FinancialReports()
             {
                 Date = AddFinancialReportsRequest.Date,
