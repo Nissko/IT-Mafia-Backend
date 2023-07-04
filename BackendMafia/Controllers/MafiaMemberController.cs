@@ -31,9 +31,7 @@ namespace Presentation.Controllers
                                                AddMafiaMemberRequuest.Patronymic,
                                                AddMafiaMemberRequuest.Birthday,
                                                AddMafiaMemberRequuest.Phone,
-                                               AddMafiaMemberRequuest.Login,
-                                               AddMafiaMemberRequuest.Password,
-                                               AddMafiaMemberRequuest.MafiaFamiliesId);
+                                               AddMafiaMemberRequuest.MafiaFamilyId);
 
             dbMafiaMember.MafiaMembers.Add(MafiaMember);
             dbMafiaMember.SaveChanges();

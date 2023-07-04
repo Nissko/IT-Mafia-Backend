@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace Domain.Entities
         {
             Name = name;
             Description = description;
+            MafiaMembers = new Collection<MafiaMember>();
+            MafiaCompanies = new Collection<MafiaCompany>();
         }
     }
 }

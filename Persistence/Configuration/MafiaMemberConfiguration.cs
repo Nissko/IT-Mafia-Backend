@@ -15,19 +15,13 @@ namespace Persistence.Configuration
         {
             builder.ToTable("MafiaMember");
 
-            builder.HasKey(t => t.Id);
+            builder.HasKey(x => x.Id);
 
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Surname).IsRequired();
             builder.Property(t => t.Patronymic).IsRequired();
             builder.Property(t => t.Birthday).IsRequired();
             builder.Property(t => t.Phone).IsRequired();
-            builder.Property(t => t.Login).IsRequired();
-            builder.Property(t => t.Password).IsRequired();
-
-            builder.HasMany(t => t.MafiaCompanies)
-               .WithOne()
-               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -19,20 +19,17 @@ namespace Domain.Entities
 
         public string BusinessType { get; private set; }
 
-        public int MafiaFamiliesId { get; private set; }
-
-        public int MafiaMembersId { get; private set; }
+        public int MafiaFamilyId { get; private set; }
 
         public virtual ICollection<FinancialReports> FinancialReports { get; private set; }
 
-        public MafiaCompany(string name, string address, string contactPhone, string businessType, int mafiaFamiliesId, int mafiaMembersId)
+        public MafiaCompany(string name, string address, string contactPhone, string businessType, int mafiaFamilyId)
         {
             Name = name;
             Address = address;
             ContactPhone = contactPhone;
             BusinessType = businessType;
-            MafiaFamiliesId = mafiaFamiliesId;
-            MafiaMembersId = mafiaMembersId;
+            MafiaFamilyId = mafiaFamilyId;
         }
     }
 }

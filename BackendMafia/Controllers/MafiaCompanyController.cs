@@ -31,8 +31,7 @@ namespace Presentation.Controllers
                                                AddMafiaCompanyRequest.Address,
                                                AddMafiaCompanyRequest.ContactPhone,
                                                AddMafiaCompanyRequest.BusinessType,
-                                               AddMafiaCompanyRequest.MafiaFamiliesId,
-                                               AddMafiaCompanyRequest.MafiaMembersId);
+                                               AddMafiaCompanyRequest.MafiaFamilyId);
 
             dbMafiaCompany.MafiaCompanies.Add(MafiaCompany);
             dbMafiaCompany.SaveChanges();

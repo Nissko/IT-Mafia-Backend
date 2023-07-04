@@ -15,7 +15,7 @@ namespace Persistence.Configuration
         {
             builder.ToTable("FinanCialReports");
 
-            builder.HasKey(t =>  t.Id);
+            builder.HasKey(x =>  x.Id);
 
             builder.Property(t => t.Date).IsRequired();
             builder.Property(t => t.Revenue).IsRequired();
