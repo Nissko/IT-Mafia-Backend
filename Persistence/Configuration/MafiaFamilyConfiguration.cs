@@ -20,12 +20,15 @@ namespace Persistence.Configuration
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Description).IsRequired();
 
+            /*Доделать ключи в остальных конфигурациях*/
             builder.HasMany(t => t.MafiaMembers)
-               .WithOne()
-               .OnDelete(DeleteBehavior.Cascade);
+                .WithOne()
+                .HasForeignKey(t => t.MafiaFamiliesId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(t => t.MafiaCompanies)
-               .WithOne()
+                .WithOne()
+                .HasForeignKey(t => t.MafiaFamiliesId)
                .OnDelete(DeleteBehavior.Restrict);
         }
     }
