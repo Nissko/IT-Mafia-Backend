@@ -1,0 +1,17 @@
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Presentation.deps.json
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Presentation.dll
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Presentation.pdb
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Domain.dll
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Persistence.dll
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Persistence.pdb
+D:\Projects\ITMafia\BackendMafia\Presentation\bin\Debug\net6.0\Domain.pdb
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.csproj.CopyComplete
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.dll
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\refint\Presentation.dll
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\Presentation.pdb
+D:\Projects\ITMafia\BackendMafia\Presentation\obj\Debug\net6.0\ref\Presentation.dll

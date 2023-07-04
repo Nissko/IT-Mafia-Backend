@@ -53,3 +53,8 @@ D:\Projects\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\BackendMafia.pdb
 D:\Projects\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\BackendMafia.genruntimeconfig.cache
 D:\Projects\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\ref\BackendMafia.dll
 D:\Projects\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\Projects\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\libman.json
+D:\Projects\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Domain.dll
+D:\Projects\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Persistence.dll
+D:\Projects\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Persistence.pdb
+D:\Projects\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Domain.pdb

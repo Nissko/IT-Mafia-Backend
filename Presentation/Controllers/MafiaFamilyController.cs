@@ -1,18 +1,17 @@
-﻿using BackendMafia.Data;
-using BackendMafia.Models;
+﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Xml.Linq;
+using Persistence;
 
-namespace BackendMafia.Controllers
+namespace Presentation.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MafiaFamilyController : Controller
+    public class MafiaFamilyController : ControllerBase
     {
-        private readonly MafiaAPIDb dbMafiaFamily;
+        private readonly MafiaApiDbContext dbMafiaFamily;
 
         //Show All
-        public MafiaFamilyController(MafiaAPIDb dbMafiaFamily) 
+        public MafiaFamilyController(MafiaApiDbContext dbMafiaFamily) 
         {
             this.dbMafiaFamily = dbMafiaFamily;
         }
@@ -27,11 +26,8 @@ namespace BackendMafia.Controllers
         [HttpPost]
         public IActionResult AddMafiaFamily(MafiaFamily AddMafiaFamilyRequest)
         {
-            var MafiaFamily = new MafiaFamily()
-            {
-                Name = AddMafiaFamilyRequest.Name,
-                Description = AddMafiaFamilyRequest.Description,
-            };
+            var MafiaFamily = new MafiaFamily(AddMafiaFamilyRequest.Name,
+                                               AddMafiaFamilyRequest.Description);
 
             dbMafiaFamily.MafiaFamilies.Add(MafiaFamily);
             dbMafiaFamily.SaveChanges();

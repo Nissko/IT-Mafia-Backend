@@ -23,8 +23,5 @@ namespace Persistence
 
         public DbSet<FinancialReports> FinancialReports { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) =>
-    modelBuilder.ApplyConfigurationsFromAssembly(typeof(MafiaApiDbContext).Assembly);
-
     }
 }

@@ -15,7 +15,13 @@ namespace Domain.Entities
         public string Description { get; private set; }
 
         public virtual ICollection<MafiaMember> MafiaMembers { get; private set; }
-        
+
         public virtual ICollection<MafiaCompany> MafiaCompanies { get; private set; }
+
+        public MafiaFamily(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
     }
 }
