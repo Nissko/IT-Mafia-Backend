@@ -32,7 +32,7 @@ namespace Presentation.Controllers
                                                            AddFinancialReportsRequest.Expense,
                                                            AddFinancialReportsRequest.NetIncome,
                                                            AddFinancialReportsRequest.FamilyDonate,
-                                                           AddFinancialReportsRequest.CompaniesId);
+                                                           AddFinancialReportsRequest.MafiaCompanyId);
 
             dbFinancialReports.FinancialReports.Add(FinancialReportsAdd);
             dbFinancialReports.SaveChanges();

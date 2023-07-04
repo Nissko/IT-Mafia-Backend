@@ -15,20 +15,19 @@ namespace Persistence.Configuration
         {
             builder.ToTable("MafiaFamily");
 
-            builder.HasKey(t => t.Id);
+            builder.HasKey(x => x.Id);
 
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Description).IsRequired();
 
-            /*Доделать ключи в остальных конфигурациях*/
             builder.HasMany(t => t.MafiaMembers)
                 .WithOne()
-                .HasForeignKey(t => t.MafiaFamiliesId)
+                .HasForeignKey(t => t.MafiaFamilyId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(t => t.MafiaCompanies)
                 .WithOne()
-                .HasForeignKey(t => t.MafiaFamiliesId)
+                .HasForeignKey(t => t.MafiaFamilyId)
                .OnDelete(DeleteBehavior.Restrict);
         }
     }

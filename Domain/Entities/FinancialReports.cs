@@ -21,15 +21,15 @@ namespace Domain.Entities
 
         public string FamilyDonate { get; private set; }
 
-        public int CompaniesId { get; private set; }
+        public int MafiaCompanyId { get; private set; }
 
-        public FinancialReports(string date, string revenue, string expense, string netIncome, string familyDonate, int companiesId)
+        public FinancialReports(string date, string revenue, string expense, string netIncome, string familyDonate, int mafiaCompanyId)
         {
             Date = date;
             Revenue = revenue;
             Expense = expense;
             NetIncome = netIncome;
-            CompaniesId = companiesId;
+            MafiaCompanyId = mafiaCompanyId;
         }
     }
 }

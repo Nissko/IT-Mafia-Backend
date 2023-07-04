@@ -15,7 +15,7 @@ namespace Persistence.Configuration
         {
             builder.ToTable("MafiaCompany");
 
-            builder.HasKey(t => t.Id);
+            builder.HasKey(x => x.Id);
 
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Address).IsRequired();
@@ -24,9 +24,10 @@ namespace Persistence.Configuration
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Name).IsRequired();
 
-            builder.HasMany(t => t.FinancialReports)
-               .WithOne()
-               .OnDelete(DeleteBehavior.Cascade);
+            /*builder.HasMany(t => t.FinancialReports)
+                .WithOne()
+                .HasForeignKey(t => t.CompaniesId)
+                .OnDelete(DeleteBehavior.Cascade);*/
         }
     }
 }

@@ -26,6 +26,29 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MafiaCompanies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Address = table.Column<string>(type: "text", nullable: false),
+                    ContactPhone = table.Column<string>(type: "text", nullable: false),
+                    BusinessType = table.Column<string>(type: "text", nullable: false),
+                    MafiaFamilyId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MafiaCompanies", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MafiaCompanies_MafiaFamilies_MafiaFamilyId",
+                        column: x => x.MafiaFamilyId,
+                        principalTable: "MafiaFamilies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MafiaMembers",
                 columns: table => new
                 {
@@ -36,10 +59,7 @@ namespace Persistence.Migrations
                     Patronymic = table.Column<string>(type: "text", nullable: false),
                     Birthday = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "text", nullable: false),
-                    Login = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    MafiaFamiliesId = table.Column<int>(type: "integer", nullable: false),
-                    MafiaFamilyId = table.Column<int>(type: "integer", nullable: true)
+                    MafiaFamilyId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,37 +68,8 @@ namespace Persistence.Migrations
                         name: "FK_MafiaMembers_MafiaFamilies_MafiaFamilyId",
                         column: x => x.MafiaFamilyId,
                         principalTable: "MafiaFamilies",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MafiaCompanies",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Address = table.Column<string>(type: "text", nullable: false),
-                    ContactPhone = table.Column<string>(type: "text", nullable: false),
-                    BusinessType = table.Column<string>(type: "text", nullable: false),
-                    MafiaFamiliesId = table.Column<int>(type: "integer", nullable: false),
-                    MafiaMembersId = table.Column<int>(type: "integer", nullable: false),
-                    MafiaFamilyId = table.Column<int>(type: "integer", nullable: true),
-                    MafiaMemberId = table.Column<int>(type: "integer", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MafiaCompanies", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_MafiaCompanies_MafiaFamilies_MafiaFamilyId",
-                        column: x => x.MafiaFamilyId,
-                        principalTable: "MafiaFamilies",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_MafiaCompanies_MafiaMembers_MafiaMemberId",
-                        column: x => x.MafiaMemberId,
-                        principalTable: "MafiaMembers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,8 +83,7 @@ namespace Persistence.Migrations
                     Expense = table.Column<string>(type: "text", nullable: false),
                     NetIncome = table.Column<string>(type: "text", nullable: false),
                     FamilyDonate = table.Column<string>(type: "text", nullable: false),
-                    CompaniesId = table.Column<int>(type: "integer", nullable: false),
-                    MafiaCompanyId = table.Column<int>(type: "integer", nullable: true)
+                    MafiaCompanyId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,7 +92,8 @@ namespace Persistence.Migrations
                         name: "FK_FinancialReports_MafiaCompanies_MafiaCompanyId",
                         column: x => x.MafiaCompanyId,
                         principalTable: "MafiaCompanies",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -114,11 +105,6 @@ namespace Persistence.Migrations
                 name: "IX_MafiaCompanies_MafiaFamilyId",
                 table: "MafiaCompanies",
                 column: "MafiaFamilyId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MafiaCompanies_MafiaMemberId",
-                table: "MafiaCompanies",
-                column: "MafiaMemberId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MafiaMembers_MafiaFamilyId",
@@ -133,10 +119,10 @@ namespace Persistence.Migrations
                 name: "FinancialReports");
 
             migrationBuilder.DropTable(
-                name: "MafiaCompanies");
+                name: "MafiaMembers");
 
             migrationBuilder.DropTable(
-                name: "MafiaMembers");
+                name: "MafiaCompanies");
 
             migrationBuilder.DropTable(
                 name: "MafiaFamilies");
