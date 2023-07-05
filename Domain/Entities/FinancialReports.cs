@@ -29,6 +29,7 @@ namespace Domain.Entities
             Revenue = revenue;
             Expense = expense;
             NetIncome = netIncome;
+            FamilyDonate = familyDonate;
             MafiaCompanyId = mafiaCompanyId;
         }
     }

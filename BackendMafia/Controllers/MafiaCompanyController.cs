@@ -1,6 +1,8 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Persistence.Migrations;
 
 namespace Presentation.Controllers
 {
@@ -19,7 +21,10 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult GetMafiaCompany()
         {
-            return Ok(dbMafiaCompany.MafiaCompanies.ToList());
+            /*Подключаем ICollection*/
+            var mafiaCompanies = dbMafiaCompany.MafiaCompanies.Select(z => z).Include(z => z.FinancialReports).ToList();
+
+            return Ok(mafiaCompanies);
         }
 
         //Store

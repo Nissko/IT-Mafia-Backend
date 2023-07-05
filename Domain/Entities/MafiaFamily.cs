@@ -20,17 +20,12 @@ namespace Domain.Entities
 
         public virtual ICollection<MafiaCompany> MafiaCompanies { get; private set; }
 
-        /*Доделать в других*/
-        public MafiaFamily()
-        {
-            MafiaMembers = new HashSet<MafiaMember>();
-            MafiaCompanies = new HashSet<MafiaCompany>();
-        }
-
         public MafiaFamily(string name, string description)
         {
             Name = name;
             Description = description;
+            MafiaMembers = new HashSet<MafiaMember>();
+            MafiaCompanies = new HashSet<MafiaCompany>();
         }
     }
 }

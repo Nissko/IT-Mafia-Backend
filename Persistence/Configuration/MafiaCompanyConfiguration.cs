@@ -21,13 +21,11 @@ namespace Persistence.Configuration
             builder.Property(t => t.Address).IsRequired();
             builder.Property(t => t.ContactPhone).IsRequired();
             builder.Property(t => t.BusinessType).IsRequired();
-            builder.Property(t => t.Name).IsRequired();
-            builder.Property(t => t.Name).IsRequired();
 
-            /*builder.HasMany(t => t.FinancialReports)
+            builder.HasMany(t => t.FinancialReports)
                 .WithOne()
-                .HasForeignKey(t => t.CompaniesId)
-                .OnDelete(DeleteBehavior.Cascade);*/
+                .HasForeignKey(t => t.MafiaCompanyId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

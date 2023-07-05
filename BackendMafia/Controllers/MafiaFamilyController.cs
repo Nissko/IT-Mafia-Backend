@@ -21,7 +21,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult GetMafiaFamily()
         {
-            /*Сделать это в остальных контроллерах*/
+            /*Подключаем ICollection*/
             var mafiaFamilies = dbMafiaFamily.MafiaFamilies.Select(t => t).Include(t =>t.MafiaMembers).Include(t => t.MafiaCompanies).ToList();
             
             return Ok(mafiaFamilies);
