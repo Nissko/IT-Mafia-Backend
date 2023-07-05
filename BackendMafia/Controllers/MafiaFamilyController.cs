@@ -22,8 +22,12 @@ namespace Presentation.Controllers
         public IActionResult GetMafiaFamily()
         {
             /*Подключаем ICollection*/
-            var mafiaFamilies = dbMafiaFamily.MafiaFamilies.Select(t => t).Include(t =>t.MafiaMembers).Include(t => t.MafiaCompanies).ToList();
-            
+            var mafiaFamilies = dbMafiaFamily.MafiaFamilies
+                                .Include(t => t.MafiaMembers)
+                                .Include(t => t.MafiaCompanies)
+                                .ThenInclude(MafiaCompany => MafiaCompany.FinancialReports)
+                                .ToList();
+
             return Ok(mafiaFamilies);
         }
 
