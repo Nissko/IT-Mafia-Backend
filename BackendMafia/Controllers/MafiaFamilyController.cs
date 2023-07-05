@@ -1,4 +1,4 @@
-﻿
+
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +29,34 @@ namespace Presentation.Controllers
                                 .ToList();
 
             return Ok(mafiaFamilies);
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public IActionResult GetNameById([FromRoute] int id)
+        {
+            var FindMember = dbMafiaFamily.MafiaFamilies.FirstOrDefault(x => x.Id == id);
+
+            if (FindMember != null)
+            {
+                return Ok(new { Name = FindMember.Name });
+            }
+
+            return NotFound();
+        }
+
+        [HttpGet]
+        [Route("{name}")]
+        public IActionResult GetCompaniesByName([FromRoute] string name)
+        {
+            var FindMember = dbMafiaFamily.MafiaFamilies.Include(t => t.MafiaCompanies).FirstOrDefault(x => x.Name == name);
+
+            if (FindMember != null)
+            {
+                return Ok(new { Companies = FindMember.MafiaCompanies.ToList()});
+            }
+
+            return NotFound();
         }
 
         //Store
