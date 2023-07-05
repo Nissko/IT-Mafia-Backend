@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +20,17 @@ namespace Domain.Entities
 
         public virtual ICollection<MafiaCompany> MafiaCompanies { get; private set; }
 
+        /*Доделать в других*/
+        public MafiaFamily()
+        {
+            MafiaMembers = new HashSet<MafiaMember>();
+            MafiaCompanies = new HashSet<MafiaCompany>();
+        }
+
         public MafiaFamily(string name, string description)
         {
             Name = name;
             Description = description;
-            MafiaMembers = new Collection<MafiaMember>();
-            MafiaCompanies = new Collection<MafiaCompany>();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Presentation.Controllers
             return Ok(dbMafiaMember.MafiaMembers.ToList());
         }
 
+        //Store
         [HttpPost]
         public IActionResult AddMafiaMember(MafiaMember AddMafiaMemberRequuest)
         {
@@ -37,6 +38,23 @@ namespace Presentation.Controllers
             dbMafiaMember.SaveChanges();
 
             return Ok(MafiaMember);
+        }
+
+        //Delete
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult DeleteMafiaMember([FromRoute] int id)
+        {
+            var FindMember = dbMafiaMember.MafiaMembers.Find(id);
+
+            if (FindMember != null)
+            {
+                dbMafiaMember.Remove(FindMember);
+                dbMafiaMember.SaveChanges();
+                return Ok("Член семьи был изгнан");
+            }
+
+            return NotFound();
         }
     }
 }
