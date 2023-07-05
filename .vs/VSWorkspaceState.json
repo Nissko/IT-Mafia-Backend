@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\BackendMafia",
+    "\\Domain",
+    "\\Domain\\Entities",
     "\\Presentation"
   ],
-  "SelectedNode": "\\BackendMafia\\Program.cs",
+  "SelectedNode": "\\Domain\\Entities\\MafiaFamily.cs",
   "PreviewInSolutionExplorer": false
 }

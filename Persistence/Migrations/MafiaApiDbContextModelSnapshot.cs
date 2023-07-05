@@ -56,7 +56,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("MafiaCompanyId");
 
-                    b.ToTable("FinancialReports");
+                    b.ToTable("FinancialReports", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.MafiaCompany", b =>
@@ -90,7 +90,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("MafiaFamilyId");
 
-                    b.ToTable("MafiaCompanies");
+                    b.ToTable("MafiaCompanies", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.MafiaFamily", b =>
@@ -111,7 +111,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MafiaFamilies");
+                    b.ToTable("MafiaFamilies", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.MafiaMember", b =>
@@ -149,7 +149,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("MafiaFamilyId");
 
-                    b.ToTable("MafiaMembers");
+                    b.ToTable("MafiaMembers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.FinancialReports", b =>
