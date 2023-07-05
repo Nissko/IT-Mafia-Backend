@@ -30,6 +30,7 @@ namespace Domain.Entities
             ContactPhone = contactPhone;
             BusinessType = businessType;
             MafiaFamilyId = mafiaFamilyId;
+            FinancialReports = new HashSet<FinancialReports>();
         }
     }
 }
