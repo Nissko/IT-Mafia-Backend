@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -27,6 +27,20 @@ namespace Presentation.Controllers
             return Ok(mafiaCompanies);
         }
 
+        [HttpGet]
+        [Route("{name}")]
+        public IActionResult GetContributorByName([FromRoute] string name)
+        {
+            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == name);
+
+            if (FindMember != null)
+            {
+                return RedirectToAction("GetNameById", "MafiaFamily", new {id = FindMember.Id});
+            }
+
+            return NotFound();
+        }
+
         //Store
         [HttpPost]
         public IActionResult AddMafiaCompany(MafiaCompany AddMafiaCompanyRequest)
@@ -42,6 +56,22 @@ namespace Presentation.Controllers
             dbMafiaCompany.SaveChanges();
 
             return Ok(MafiaCompany);
+        }
+
+        [HttpDelete]
+        [Route("{name}")]
+        public IActionResult DeleteMafiaMember([FromRoute] string name)
+        {
+            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == name);
+
+            if (FindMember != null)
+            {
+                dbMafiaCompany.MafiaCompanies.Remove(FindMember);
+                dbMafiaCompany.SaveChanges();
+                return Ok("Компания лишилась покровительства");
+            }
+
+            return NotFound();
         }
     }
 }
