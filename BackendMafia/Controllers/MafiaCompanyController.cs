@@ -6,6 +6,8 @@ using Persistence;
 using Persistence.Migrations;
 using System.Web;
 using System;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Presentation.Controllers
 {
@@ -13,6 +15,7 @@ namespace Presentation.Controllers
     [Route("[controller]")]
     public class MafiaCompanyController : ControllerBase
     {
+        //DB Init
         private readonly MafiaApiDbContext dbMafiaCompany;
 
         public MafiaCompanyController(MafiaApiDbContext dbMafiaCompany)
@@ -20,17 +23,20 @@ namespace Presentation.Controllers
             this.dbMafiaCompany = dbMafiaCompany;
         }
 
-        //Show All
+        //Получение всех компаний с коллекциями
         [HttpGet]
         public IActionResult GetMafiaCompany()
         {
             /*Подключаем ICollection*/
-            var mafiaCompanies = dbMafiaCompany.MafiaCompanies.Select(z => z).Include(z => z.FinancialReports).ToList();
+            var mafiaCompanies = dbMafiaCompany.MafiaCompanies
+                                .Select(z => z)
+                                .Include(z => z.FinancialReports)
+                                .ToList();
 
             return Ok(mafiaCompanies);
         }
 
-        /*Вывод кому принадлежит компания по ее названию*/
+        //Вывод какой семье принадлежит компания по ее названию
         [HttpGet]
         [Route("FindNameFamily/{name}")]
         public IActionResult GetContributorByName([FromRoute] string name)
@@ -38,33 +44,35 @@ namespace Presentation.Controllers
             string nameConverted;
             while ((nameConverted = Uri.UnescapeDataString(name)) != name)
                 name = nameConverted;
-            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
+                var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
+
             if (FindMember != null)
             {
-                return RedirectToAction("GetNameById", "MafiaFamily", new { id = FindMember.Id });
+                return RedirectToAction("GetNameById", "MafiaFamily", new { id = FindMember.MafiaFamilyId });
             }
 
             return NotFound();
         }
 
-        //Store
+        //Добавление компании
         [HttpPost]
         public IActionResult AddMafiaCompany(MafiaCompany AddMafiaCompanyRequest)
         {
 
-            var MafiaCompany = new MafiaCompany(AddMafiaCompanyRequest.Name,
-                                               AddMafiaCompanyRequest.Address,
-                                               AddMafiaCompanyRequest.ContactPhone,
-                                               AddMafiaCompanyRequest.BusinessType,
+            var MafiaCompany = new MafiaCompany(WebUtility.HtmlEncode(Regex.Replace(AddMafiaCompanyRequest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaCompanyRequest.Address, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaCompanyRequest.ContactPhone, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaCompanyRequest.BusinessType, "<[^>]*(>|$)", string.Empty)).ToString(),
                                                AddMafiaCompanyRequest.MafiaFamilyId);
+
 
             dbMafiaCompany.MafiaCompanies.Add(MafiaCompany);
             dbMafiaCompany.SaveChanges();
-
+            
             return Ok(MafiaCompany);
         }
 
-        //Delete
+        //Удаление компании по названию
         [HttpDelete]
         [Route("{name}")]
         public IActionResult DeleteMafiaMember([FromRoute] string name)
@@ -72,7 +80,7 @@ namespace Presentation.Controllers
             string nameConverted;
             while ((nameConverted = Uri.UnescapeDataString(name)) != name)
                 name = nameConverted;
-            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
+            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == WebUtility.HtmlEncode(nameConverted));
 
             if (FindMember != null)
             {
@@ -83,5 +91,6 @@ namespace Presentation.Controllers
 
             return NotFound();
         }
+
     }
 }

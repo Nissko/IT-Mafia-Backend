@@ -11,19 +11,29 @@ namespace Domain.Entities
     {
         public int Id { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [StringLength(10, ErrorMessage = "Неверно указана дата")]
         public string Date { get; private set; }
 
-        public string Revenue { get; private set; }
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Range(1, 1000000, ErrorMessage = "Неверно указан доход")]
+        public decimal Revenue { get; private set; }
 
-        public string Expense { get; private set; }
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Range(1, 1000000, ErrorMessage = "Неверно указаны расходы")]
+        public decimal Expense { get; private set; }
 
-        public string NetIncome { get; private set; }
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Range(1, 1000000, ErrorMessage = "Неверно указан чистый доход")]
+        public decimal NetIncome { get; private set; }
 
-        public string FamilyDonate { get; private set; }
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Range(1, 1000000, ErrorMessage = "Неверно указано семейное пожертвование")]
+        public decimal FamilyDonate { get; private set; }
 
         public int MafiaCompanyId { get; private set; }
 
-        public FinancialReports(string date, string revenue, string expense, string netIncome, string familyDonate, int mafiaCompanyId)
+        public FinancialReports(string date, decimal revenue, decimal expense, decimal netIncome, decimal familyDonate, int mafiaCompanyId)
         {
             Date = date;
             Revenue = revenue;

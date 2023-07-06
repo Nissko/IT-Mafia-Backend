@@ -1,6 +1,8 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Persistence;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Presentation.Controllers
 {
@@ -8,30 +10,31 @@ namespace Presentation.Controllers
     [Route("[controller]")]
     public class MafiaMemberController : ControllerBase
     {
+        //DB Init
         private readonly MafiaApiDbContext dbMafiaMember;
 
-        //Show All
         public MafiaMemberController(MafiaApiDbContext dbMafiaMember)
         {
             this.dbMafiaMember = dbMafiaMember;
         }
 
+        //Получение списка всех членов семей
         [HttpGet]
         public IActionResult GetMafiaMember()
         {
             return Ok(dbMafiaMember.MafiaMembers.ToList());
         }
 
-        //Store
+        //Добавление членов семьи
         [HttpPost]
         public IActionResult AddMafiaMember(MafiaMember AddMafiaMemberRequuest)
         {
 
-            var MafiaMember = new MafiaMember(AddMafiaMemberRequuest.Name,
-                                               AddMafiaMemberRequuest.Surname,
-                                               AddMafiaMemberRequuest.Patronymic,
-                                               AddMafiaMemberRequuest.Birthday,
-                                               AddMafiaMemberRequuest.Phone,
+            var MafiaMember = new MafiaMember(WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Surname, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Patronymic, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Birthday, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Phone, "<[^>]*(>|$)", string.Empty)).ToString(),
                                                AddMafiaMemberRequuest.MafiaFamilyId);
 
             dbMafiaMember.MafiaMembers.Add(MafiaMember);
@@ -40,16 +43,16 @@ namespace Presentation.Controllers
             return Ok(MafiaMember);
         }
 
-        //Delete
+        //Удаление члена семьи
         [HttpDelete]
         [Route("{id:int}")]
         public IActionResult DeleteMafiaMember([FromRoute] int id)
         {
-            var FindMember = dbMafiaMember.MafiaMembers.Find(id);
+            var FindMemberDelete = dbMafiaMember.MafiaMembers.Find(id);
 
-            if (FindMember != null)
+            if (FindMemberDelete != null)
             {
-                dbMafiaMember.Remove(FindMember);
+                dbMafiaMember.Remove(FindMemberDelete);
                 dbMafiaMember.SaveChanges();
                 return Ok("Член семьи был изгнан");
             }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities
 {
@@ -6,14 +7,25 @@ namespace Domain.Entities
     {
         public int Id { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [StringLength(100, ErrorMessage = "Неверно написано имя", MinimumLength = 2)]
         public string Name { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [StringLength(100, ErrorMessage = "Неверно написано фамилия", MinimumLength = 10)]
         public string Surname { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [StringLength(100, ErrorMessage = "Неверно написано отчество", MinimumLength = 10)]
         public string Patronymic { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [StringLength(10, ErrorMessage = "Неверно указана дата")]
         public string Birthday { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [StringLength(20, ErrorMessage = "Неверно указан номер телефона")]
+        [Phone (ErrorMessage = "Некорректный номер телефоа")]
         public string Phone { get; private set; }
 
         public int MafiaFamilyId { get; private set; }
