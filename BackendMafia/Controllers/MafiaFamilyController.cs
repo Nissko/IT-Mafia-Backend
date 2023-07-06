@@ -3,6 +3,8 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Presentation.Controllers
 {
@@ -10,14 +12,15 @@ namespace Presentation.Controllers
     [Route("[controller]")]
     public class MafiaFamilyController : ControllerBase
     {
+        //DB Init
         private readonly MafiaApiDbContext dbMafiaFamily;
 
-        //Show All
         public MafiaFamilyController(MafiaApiDbContext dbMafiaFamily) 
         {
             this.dbMafiaFamily = dbMafiaFamily;
         }
-
+        
+        //Получение списка всех семей со всеми коллекциями
         [HttpGet]
         public IActionResult GetMafiaFamily()
         {
@@ -31,6 +34,7 @@ namespace Presentation.Controllers
             return Ok(mafiaFamilies);
         }
 
+        //Поиск названия семьи по её ID (Вспомогательный)
         [HttpGet]
         [Route("{id:int}")]
         public IActionResult GetNameById([FromRoute] int id)
@@ -45,29 +49,33 @@ namespace Presentation.Controllers
             return NotFound();
         }
 
+        //Список всех "опекаемых" компаний в городе по названию семьи
         [HttpGet]
-        [Route("{name}")]
+        [Route("FindCompaniesForName/{name}")]
         public IActionResult GetCompaniesByName([FromRoute] string name)
         {
             string nameConverted;
             while ((nameConverted = Uri.UnescapeDataString(name)) != name)
                 name = nameConverted;
-            var FindMember = dbMafiaFamily.MafiaFamilies.FirstOrDefault(x => x.Name == nameConverted);
+            var FindMember = dbMafiaFamily.MafiaFamilies
+                            .Include(t => t.MafiaCompanies)
+                            .ThenInclude(MafiaCompany => MafiaCompany.FinancialReports)
+                            .FirstOrDefault(x => x.Name == nameConverted);
 
             if (FindMember != null)
             {
-                return Ok(new { Companies = FindMember.MafiaCompanies.ToList()});
+                return Ok(new { Companies = FindMember.MafiaCompanies.ToList() });
             }
 
             return NotFound();
         }
 
-        //Store
+        //Добавление информации о новой семье
         [HttpPost]
         public IActionResult AddMafiaFamily(MafiaFamily AddMafiaFamilyRequest)
         {
-            var MafiaFamily = new MafiaFamily(AddMafiaFamilyRequest.Name,
-                                               AddMafiaFamilyRequest.Description);
+            var MafiaFamily = new MafiaFamily(WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Description, "<[^>]*(>|$)", string.Empty)).ToString());
 
             dbMafiaFamily.MafiaFamilies.Add(MafiaFamily);
             dbMafiaFamily.SaveChanges();
@@ -75,7 +83,7 @@ namespace Presentation.Controllers
             return Ok(MafiaFamily);
         }
 
-        //Destroy
+        //Удаление информации о семье
         [HttpDelete]
         [Route("{id:int}")]
         public IActionResult DeleteMafiaFamily([FromRoute] int id)
