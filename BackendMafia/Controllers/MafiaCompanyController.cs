@@ -15,12 +15,12 @@ namespace Presentation.Controllers
     {
         private readonly MafiaApiDbContext dbMafiaCompany;
 
-        //Show All
         public MafiaCompanyController(MafiaApiDbContext dbMafiaCompany)
         {
             this.dbMafiaCompany = dbMafiaCompany;
         }
 
+        //Show All
         [HttpGet]
         public IActionResult GetMafiaCompany()
         {
@@ -30,8 +30,9 @@ namespace Presentation.Controllers
             return Ok(mafiaCompanies);
         }
 
+        /*Вывод кому принадлежит компания по ее названию*/
         [HttpGet]
-        [Route("{name}")]
+        [Route("FindNameFamily/{name}")]
         public IActionResult GetContributorByName([FromRoute] string name)
         {
             string nameConverted;
@@ -40,7 +41,7 @@ namespace Presentation.Controllers
             var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
             if (FindMember != null)
             {
-                return RedirectToAction("GetNameById", "MafiaFamily", new {id = FindMember.MafiaFamilyId});
+                return RedirectToAction("GetNameById", "MafiaFamily", new { id = FindMember.Id });
             }
 
             return NotFound();
@@ -63,6 +64,7 @@ namespace Presentation.Controllers
             return Ok(MafiaCompany);
         }
 
+        //Delete
         [HttpDelete]
         [Route("{name}")]
         public IActionResult DeleteMafiaMember([FromRoute] string name)
