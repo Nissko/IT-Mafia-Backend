@@ -49,7 +49,10 @@ namespace Presentation.Controllers
         [Route("{name}")]
         public IActionResult GetCompaniesByName([FromRoute] string name)
         {
-            var FindMember = dbMafiaFamily.MafiaFamilies.Include(t => t.MafiaCompanies).FirstOrDefault(x => x.Name == name);
+            string nameConverted;
+            while ((nameConverted = Uri.UnescapeDataString(name)) != name)
+                name = nameConverted;
+            var FindMember = dbMafiaFamily.MafiaFamilies.FirstOrDefault(x => x.Name == nameConverted);
 
             if (FindMember != null)
             {

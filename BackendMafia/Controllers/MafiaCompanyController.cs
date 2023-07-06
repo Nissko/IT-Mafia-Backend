@@ -1,8 +1,11 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 using Persistence;
 using Persistence.Migrations;
+using System.Web;
+using System;
 
 namespace Presentation.Controllers
 {
@@ -32,8 +35,10 @@ namespace Presentation.Controllers
         [Route("FindNameFamily/{name}")]
         public IActionResult GetContributorByName([FromRoute] string name)
         {
-            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == name);
-
+            string nameConverted;
+            while ((nameConverted = Uri.UnescapeDataString(name)) != name)
+                name = nameConverted;
+            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
             if (FindMember != null)
             {
                 return RedirectToAction("GetNameById", "MafiaFamily", new { id = FindMember.Id });
@@ -64,7 +69,10 @@ namespace Presentation.Controllers
         [Route("{name}")]
         public IActionResult DeleteMafiaMember([FromRoute] string name)
         {
-            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == name);
+            string nameConverted;
+            while ((nameConverted = Uri.UnescapeDataString(name)) != name)
+                name = nameConverted;
+            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
 
             if (FindMember != null)
             {
