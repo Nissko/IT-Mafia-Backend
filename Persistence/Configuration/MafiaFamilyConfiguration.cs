@@ -28,7 +28,7 @@ namespace Persistence.Configuration
             builder.HasMany(t => t.MafiaCompanies)
                 .WithOne()
                 .HasForeignKey(t => t.MafiaFamilyId)
-               .OnDelete(DeleteBehavior.Restrict);
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

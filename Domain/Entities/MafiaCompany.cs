@@ -32,5 +32,15 @@ namespace Domain.Entities
             MafiaFamilyId = mafiaFamilyId;
             FinancialReports = new HashSet<FinancialReports>();
         }
+
+        public void Update(string name, string address, string contactPhone, string businessType, int mafiaFamilyId)
+        {
+            Name = name;
+            Address = address;
+            ContactPhone = contactPhone;
+            BusinessType = businessType;
+            MafiaFamilyId = mafiaFamilyId;
+            FinancialReports = new HashSet<FinancialReports>();
+        }
     }
 }
