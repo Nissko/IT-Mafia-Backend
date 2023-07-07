@@ -31,6 +31,7 @@ namespace Domain.Entities
         [Range(1, 1000000, ErrorMessage = "Неверно указано семейное пожертвование")]
         public decimal FamilyDonate { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
         public int MafiaCompanyId { get; private set; }
 
         public FinancialReports(string date, decimal revenue, decimal expense, decimal netIncome, decimal familyDonate, int mafiaCompanyId)
