@@ -14,11 +14,11 @@ namespace Domain.Entities
         public int Id { get; private set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
-        [StringLength(100, ErrorMessage = "Неверно написано имя", MinimumLength = 10)]
+        [StringLength(100, ErrorMessage = "Неверно написано имя", MinimumLength = 5)]
         public string Name { get; private set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
-        [StringLength(500, ErrorMessage = "Неверно написано описание", MinimumLength = 20)]
+        [StringLength(500, ErrorMessage = "Неверно написано описание", MinimumLength = 10)]
         public string Description { get; private set; }
 
         public virtual ICollection<MafiaMember> MafiaMembers { get; private set; }

@@ -74,6 +74,7 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult AddMafiaFamily(MafiaFamily AddMafiaFamilyRequest)
         {
+
             var MafiaFamily = new MafiaFamily(WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
                                                WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Description, "<[^>]*(>|$)", string.Empty)).ToString());
 

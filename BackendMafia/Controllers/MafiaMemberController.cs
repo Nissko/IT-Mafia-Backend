@@ -29,6 +29,12 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult AddMafiaMember(MafiaMember AddMafiaMemberRequuest)
         {
+            // Проверка существования внешнего ключа
+            bool mafiaFamilyExists = dbMafiaMember.MafiaFamilies.Any(x => x.Id == AddMafiaMemberRequuest.MafiaFamilyId);
+            if (!mafiaFamilyExists)
+            {
+                return BadRequest("Участник не может относиться к этой семье. Указанного MafiaFamilyId не существует");
+            }
 
             var MafiaMember = new MafiaMember(WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
                                                WebUtility.HtmlEncode(Regex.Replace(AddMafiaMemberRequuest.Surname, "<[^>]*(>|$)", string.Empty)).ToString(),

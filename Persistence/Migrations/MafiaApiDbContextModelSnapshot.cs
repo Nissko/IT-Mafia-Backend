@@ -31,32 +31,29 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Date")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
 
-                    b.Property<string>("Expense")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("Expense")
+                        .HasColumnType("numeric");
 
-                    b.Property<string>("FamilyDonate")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("FamilyDonate")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("MafiaCompanyId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("NetIncome")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("NetIncome")
+                        .HasColumnType("numeric");
 
-                    b.Property<string>("Revenue")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("Revenue")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MafiaCompanyId");
 
-                    b.ToTable("FinancialReports", (string)null);
+                    b.ToTable("FinancialReports");
                 });
 
             modelBuilder.Entity("Domain.Entities.MafiaCompany", b =>
@@ -69,28 +66,32 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.Property<string>("BusinessType")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("ContactPhone")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<int>("MafiaFamilyId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MafiaFamilyId");
 
-                    b.ToTable("MafiaCompanies", (string)null);
+                    b.ToTable("MafiaCompanies");
                 });
 
             modelBuilder.Entity("Domain.Entities.MafiaFamily", b =>
@@ -103,15 +104,17 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("MafiaFamilies", (string)null);
+                    b.ToTable("MafiaFamilies");
                 });
 
             modelBuilder.Entity("Domain.Entities.MafiaMember", b =>
@@ -124,32 +127,37 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Birthday")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
 
                     b.Property<int>("MafiaFamilyId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Patronymic")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MafiaFamilyId");
 
-                    b.ToTable("MafiaMembers", (string)null);
+                    b.ToTable("MafiaMembers");
                 });
 
             modelBuilder.Entity("Domain.Entities.FinancialReports", b =>
