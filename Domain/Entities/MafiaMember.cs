@@ -29,9 +29,10 @@ namespace Domain.Entities
         [Phone (ErrorMessage = "Некорректный номер телефона")]
         public string Phone { get; private set; }
 
-        [Required]
-        [ForeignKey("MafiaFamily")]
+        [Required(ErrorMessage = "Обязательное поле")]
         public int MafiaFamilyId { get; private set; }
+
+        public int? OrderShopId { get; set; }
 
         public MafiaMember(string name, string surname, string patronymic, string birthday, string phone, int mafiaFamilyId)
         {
@@ -41,6 +42,7 @@ namespace Domain.Entities
             Birthday = birthday;
             Phone = phone;
             MafiaFamilyId = mafiaFamilyId;
+            OrderShopId = null;
         }
 
     }

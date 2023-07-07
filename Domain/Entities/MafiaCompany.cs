@@ -29,6 +29,7 @@ namespace Domain.Entities
         [StringLength(100, ErrorMessage = "Неверно написан тип бизнеса", MinimumLength = 10)]
         public string BusinessType { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
         public int MafiaFamilyId { get; private set; }
 
         public virtual ICollection<FinancialReports> FinancialReports { get; private set; }
