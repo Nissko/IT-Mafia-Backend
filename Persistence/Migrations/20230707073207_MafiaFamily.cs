@@ -17,8 +17,8 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,10 +31,10 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Address = table.Column<string>(type: "text", nullable: false),
-                    ContactPhone = table.Column<string>(type: "text", nullable: false),
-                    BusinessType = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Address = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    ContactPhone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    BusinessType = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     MafiaFamilyId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -54,11 +54,11 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Surname = table.Column<string>(type: "text", nullable: false),
-                    Patronymic = table.Column<string>(type: "text", nullable: false),
-                    Birthday = table.Column<string>(type: "text", nullable: false),
-                    Phone = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Surname = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Patronymic = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Birthday = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
+                    Phone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
                     MafiaFamilyId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -78,11 +78,11 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Date = table.Column<string>(type: "text", nullable: false),
-                    Revenue = table.Column<string>(type: "text", nullable: false),
-                    Expense = table.Column<string>(type: "text", nullable: false),
-                    NetIncome = table.Column<string>(type: "text", nullable: false),
-                    FamilyDonate = table.Column<string>(type: "text", nullable: false),
+                    Date = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
+                    Revenue = table.Column<decimal>(type: "numeric", nullable: false),
+                    Expense = table.Column<decimal>(type: "numeric", nullable: false),
+                    NetIncome = table.Column<decimal>(type: "numeric", nullable: false),
+                    FamilyDonate = table.Column<decimal>(type: "numeric", nullable: false),
                     MafiaCompanyId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

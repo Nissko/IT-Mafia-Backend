@@ -29,6 +29,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult AddFinancialReports(FinancialReports AddFinancialReportsRequest)
         {
+            bool mafiaFamilyExists = dbFinancialReports.MafiaFamilies.Any(x => x.Id == AddFinancialReportsRequest.MafiaCompanyId);
+            if (!mafiaFamilyExists)
+            {
+                return BadRequest("Финансовый отчет не может относиться к этой компании. Указанного MafiaCompanyId не существует");
+            }
 
             var FinancialReportsAdd = new FinancialReports(WebUtility.HtmlEncode(Regex.Replace(AddFinancialReportsRequest.Date, "<[^>]*(>|$)", string.Empty)).ToString(),
                                                            AddFinancialReportsRequest.Revenue,

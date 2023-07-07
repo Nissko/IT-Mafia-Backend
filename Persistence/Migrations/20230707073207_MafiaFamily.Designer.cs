@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MafiaApiDbContext))]
-    [Migration("20230704114953_MafiaFamily")]
+    [Migration("20230707073207_MafiaFamily")]
     partial class MafiaFamily
     {
         /// <inheritdoc />
@@ -34,26 +34,23 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Date")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
 
-                    b.Property<string>("Expense")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("Expense")
+                        .HasColumnType("numeric");
 
-                    b.Property<string>("FamilyDonate")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("FamilyDonate")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("MafiaCompanyId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("NetIncome")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("NetIncome")
+                        .HasColumnType("numeric");
 
-                    b.Property<string>("Revenue")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<decimal>("Revenue")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -72,22 +69,26 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.Property<string>("BusinessType")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("ContactPhone")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<int>("MafiaFamilyId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -106,11 +107,13 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -127,26 +130,31 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Birthday")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
 
                     b.Property<int>("MafiaFamilyId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Patronymic")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 

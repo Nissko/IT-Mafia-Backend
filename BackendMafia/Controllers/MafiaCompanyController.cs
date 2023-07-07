@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using Persistence;
-using Persistence.Migrations;
 using System.Web;
 using System;
 using System.Net;
@@ -58,6 +57,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult AddMafiaCompany(MafiaCompany AddMafiaCompanyRequest)
         {
+            bool mafiaFamilyExists = dbMafiaCompany.MafiaFamilies.Any(x => x.Id == AddMafiaCompanyRequest.MafiaFamilyId);
+            if (!mafiaFamilyExists)
+            {
+                return BadRequest("Компания не может относиться к этой семье. Указанного MafiaFamilyId не существует");
+            }
 
             var MafiaCompany = new MafiaCompany(WebUtility.HtmlEncode(Regex.Replace(AddMafiaCompanyRequest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
                                                WebUtility.HtmlEncode(Regex.Replace(AddMafiaCompanyRequest.Address, "<[^>]*(>|$)", string.Empty)).ToString(),
