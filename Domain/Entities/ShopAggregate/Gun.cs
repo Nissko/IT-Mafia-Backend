@@ -9,7 +9,7 @@ namespace Domain.Entities.ShopAggregate
 {
     public class Gun
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
         [StringLength(100, ErrorMessage = "Введите корректное название")]
@@ -29,5 +29,14 @@ namespace Domain.Entities.ShopAggregate
         [Required(ErrorMessage = "Обязательное поле")]
         [Range(0, 1000000, ErrorMessage = "Введите корректную цену")]
         public decimal Price { get; set; }
+
+        public Gun(string name, int count, string type, string supportAmmo, decimal price) 
+        { 
+            Name = name;
+            Count = count;
+            Type = type;
+            SupportAmmo = supportAmmo;
+            Price = price;
+        }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.MainAggregate;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Presentation.Controllers
+namespace BackendMafia.Controllers.MainControllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -22,7 +23,12 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult GetMafiaMember()
         {
-            return Ok(dbMafiaMember.MafiaMembers.ToList());
+            /*Подключаем ICollection*/
+            var mafiaMembers = dbMafiaMember.MafiaMembers
+                                .Select(z => z)
+                                .Include(z => z.OrderShops);
+
+            return Ok(mafiaMembers);
         }
 
         //Добавление членов семьи

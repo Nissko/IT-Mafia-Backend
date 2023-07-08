@@ -107,6 +107,9 @@ namespace Persistence.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
+                    b.Property<decimal>("FamilyMoney")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -160,6 +163,93 @@ namespace Persistence.Migrations
                     b.ToTable("MafiaMembers");
                 });
 
+            modelBuilder.Entity("Domain.Entities.ShopAggregate.Ammunition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ammunitions");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ShopAggregate.Gun", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("SupportAmmo")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Guns");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ShopAggregate.OrderShop", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AmmunitonCount")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("AmmunitonName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("GunName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("MafiaMemberId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MafiaMemberId");
+
+                    b.ToTable("OrderShops");
+                });
+
             modelBuilder.Entity("Domain.Entities.FinancialReports", b =>
                 {
                     b.HasOne("Domain.Entities.MafiaCompany", null)
@@ -187,6 +277,15 @@ namespace Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Domain.Entities.ShopAggregate.OrderShop", b =>
+                {
+                    b.HasOne("Domain.Entities.MafiaMember", null)
+                        .WithMany("OrderShops")
+                        .HasForeignKey("MafiaMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Domain.Entities.MafiaCompany", b =>
                 {
                     b.Navigation("FinancialReports");
@@ -197,6 +296,11 @@ namespace Persistence.Migrations
                     b.Navigation("MafiaCompanies");
 
                     b.Navigation("MafiaMembers");
+                });
+
+            modelBuilder.Entity("Domain.Entities.MafiaMember", b =>
+                {
+                    b.Navigation("OrderShops");
                 });
 #pragma warning restore 612, 618
         }

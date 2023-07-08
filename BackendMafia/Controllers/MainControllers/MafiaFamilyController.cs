@@ -1,12 +1,12 @@
-
 using Domain.Entities;
+using Domain.Entities.MainAggregate;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Presentation.Controllers
+namespace BackendMafia.Controllers.MainControllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -15,11 +15,11 @@ namespace Presentation.Controllers
         //DB Init
         private readonly MafiaApiDbContext dbMafiaFamily;
 
-        public MafiaFamilyController(MafiaApiDbContext dbMafiaFamily) 
+        public MafiaFamilyController(MafiaApiDbContext dbMafiaFamily)
         {
             this.dbMafiaFamily = dbMafiaFamily;
         }
-        
+
         //Получение списка всех семей со всеми коллекциями
         [HttpGet]
         public IActionResult GetMafiaFamily()
@@ -27,6 +27,7 @@ namespace Presentation.Controllers
             /*Подключаем ICollection*/
             var mafiaFamilies = dbMafiaFamily.MafiaFamilies
                                 .Include(t => t.MafiaMembers)
+                                .ThenInclude(MafiaMember => MafiaMember.OrderShops)
                                 .Include(t => t.MafiaCompanies)
                                 .ThenInclude(MafiaCompany => MafiaCompany.FinancialReports)
                                 .ToList();
@@ -43,7 +44,7 @@ namespace Presentation.Controllers
 
             if (FindMember != null)
             {
-                return Ok(new { Name = FindMember.Name });
+                return Ok(new { FindMember.Name });
             }
 
             return NotFound();
@@ -76,7 +77,8 @@ namespace Presentation.Controllers
         {
 
             var MafiaFamily = new MafiaFamily(WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Name, "<[^>]*(>|$)", string.Empty)).ToString(),
-                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Description, "<[^>]*(>|$)", string.Empty)).ToString());
+                                               WebUtility.HtmlEncode(Regex.Replace(AddMafiaFamilyRequest.Description, "<[^>]*(>|$)", string.Empty)).ToString(),
+                                               AddMafiaFamilyRequest.FamilyMoney);
 
             dbMafiaFamily.MafiaFamilies.Add(MafiaFamily);
             dbMafiaFamily.SaveChanges();

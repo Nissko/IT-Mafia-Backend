@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.MainAggregate;
 using Domain.Entities.ShopAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;

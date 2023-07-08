@@ -1,4 +1,3 @@
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
@@ -7,8 +6,9 @@ using System.Web;
 using System;
 using System.Net;
 using System.Text.RegularExpressions;
+using Domain.Entities.MainAggregate;
 
-namespace Presentation.Controllers
+namespace BackendMafia.Controllers.MainControllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -43,7 +43,7 @@ namespace Presentation.Controllers
             string nameConverted;
             while ((nameConverted = Uri.UnescapeDataString(name)) != name)
                 name = nameConverted;
-                var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
+            var FindMember = dbMafiaCompany.MafiaCompanies.FirstOrDefault(x => x.Name == nameConverted);
 
             if (FindMember != null)
             {
@@ -72,7 +72,7 @@ namespace Presentation.Controllers
 
             dbMafiaCompany.MafiaCompanies.Add(MafiaCompany);
             dbMafiaCompany.SaveChanges();
-            
+
             return Ok(MafiaCompany);
         }
 
