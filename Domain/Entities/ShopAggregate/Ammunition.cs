@@ -9,18 +9,25 @@ namespace Domain.Entities.ShopAggregate
 {
     public class Ammunition
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
         [StringLength(150, ErrorMessage = "Введите корректное название", MinimumLength = 2)]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
-        [Range(0, 10000, ErrorMessage = "Введите корректное количество")]
+        [Range(0, 1000000, ErrorMessage = "Введите корректное количество")]
         public int Count { get; set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
         [Range(0, 1000000, ErrorMessage = "Введите корректную цену")]
         public decimal Price { get; set; }
+
+        public Ammunition(string name, int count, decimal price)
+        {
+            Name = name;
+            Count = count;
+            Price = price;
+        }
     }
 }
