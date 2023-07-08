@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "itbpdag+yaru6UXLW8Wv6wySaipq/wBL8Lml1a39p7F+RS8Ato1GffhW5Dtc31i9agqCtZfDCC/zi7j1iCLuwQ==",
+  "dgSpecHash": "eUQDCRiCqlcMrhd0hvPxaSBsdkEwY9fH080h/FyjHr4hklNhFf82yn+wcVJpUUr5cPf+WpoBwIV3HEj6heu7uQ==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
+  "projectFilePath": "F:\\Project\\ITMafia\\Backend\\BackendMafia\\BackendMafia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niksk\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.8\\microsoft.entityframeworkcore.7.0.8.nupkg.sha512",

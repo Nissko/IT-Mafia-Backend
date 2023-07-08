@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FrUwqvpfWvMaFRIkUJP0OO3dEonEHfQz5Z6LaEe92bvzOEPoeqY1ydQXTooRGwG4qsiLaib4Gc4i7cNG9mB3yQ==",
+  "dgSpecHash": "BK3Nx8YD9Ucd8juSolpMmMwckCXDxsdWfwYA0ObfKUtrsv21fxbi6DxBXeC2wwCIq45OqREFH6d7Tw8NFaBZjQ==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj",
+  "projectFilePath": "F:\\Project\\ITMafia\\Backend\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.8\\microsoft.entityframeworkcore.7.0.8.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.8\\microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",

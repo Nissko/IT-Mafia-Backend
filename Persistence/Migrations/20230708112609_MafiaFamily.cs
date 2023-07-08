@@ -12,13 +12,46 @@ namespace Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Ammunitions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    Count = table.Column<int>(type: "integer", nullable: false),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ammunitions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Guns",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Count = table.Column<int>(type: "integer", nullable: false),
+                    Type = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    SupportAmmo = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Guns", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MafiaFamilies",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false)
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    FamilyMoney = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,6 +129,28 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "OrderShops",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GunName = table.Column<string>(type: "text", nullable: false),
+                    AmmunitonName = table.Column<string>(type: "text", nullable: false),
+                    AmmunitonCount = table.Column<int>(type: "integer", nullable: false),
+                    MafiaMemberId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderShops", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderShops_MafiaMembers_MafiaMemberId",
+                        column: x => x.MafiaMemberId,
+                        principalTable: "MafiaMembers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_FinancialReports_MafiaCompanyId",
                 table: "FinancialReports",
@@ -110,19 +165,33 @@ namespace Persistence.Migrations
                 name: "IX_MafiaMembers_MafiaFamilyId",
                 table: "MafiaMembers",
                 column: "MafiaFamilyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderShops_MafiaMemberId",
+                table: "OrderShops",
+                column: "MafiaMemberId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Ammunitions");
+
+            migrationBuilder.DropTable(
                 name: "FinancialReports");
 
             migrationBuilder.DropTable(
-                name: "MafiaMembers");
+                name: "Guns");
+
+            migrationBuilder.DropTable(
+                name: "OrderShops");
 
             migrationBuilder.DropTable(
                 name: "MafiaCompanies");
+
+            migrationBuilder.DropTable(
+                name: "MafiaMembers");
 
             migrationBuilder.DropTable(
                 name: "MafiaFamilies");

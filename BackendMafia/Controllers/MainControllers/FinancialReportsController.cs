@@ -1,10 +1,10 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.MainAggregate;
 using Microsoft.AspNetCore.Mvc;
 using Persistence;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Presentation.Controllers
+namespace BackendMafia.Controllers.MainControllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.MainAggregate
 {
     public class MafiaFamily
     {
@@ -21,14 +21,19 @@ namespace Domain.Entities
         [StringLength(500, ErrorMessage = "Неверно написано описание", MinimumLength = 10)]
         public string Description { get; private set; }
 
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Range(0, 1000000, ErrorMessage = "Введите корректный бюджет семьи")]
+        public decimal FamilyMoney { get; set; }
+
         public virtual ICollection<MafiaMember> MafiaMembers { get; private set; }
 
         public virtual ICollection<MafiaCompany> MafiaCompanies { get; private set; }
 
-        public MafiaFamily(string name, string description)
+        public MafiaFamily(string name, string description, decimal familyMoney)
         {
             Name = name;
             Description = description;
+            FamilyMoney = familyMoney;
             MafiaMembers = new HashSet<MafiaMember>();
             MafiaCompanies = new HashSet<MafiaCompany>();
         }

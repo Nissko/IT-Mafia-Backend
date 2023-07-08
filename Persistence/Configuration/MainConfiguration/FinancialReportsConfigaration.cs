@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.MainAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence.Configuration
+namespace Persistence.Configuration.MainConfiguration
 {
     public class FinancialReportsConfigaration : IEntityTypeConfiguration<FinancialReports>
     {
@@ -15,7 +15,7 @@ namespace Persistence.Configuration
         {
             builder.ToTable("FinanCialReports");
 
-            builder.HasKey(x =>  x.Id);
+            builder.HasKey(x => x.Id);
 
             builder.Property(t => t.Date).IsRequired();
             builder.Property(t => t.Revenue).IsRequired();

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities;
+using Domain.Entities.MainAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.Configuration
+namespace Persistence.Configuration.MainConfiguration
 {
     class MafiaFamilyConfiguration : IEntityTypeConfiguration<MafiaFamily>
     {
@@ -19,6 +19,7 @@ namespace Persistence.Configuration
 
             builder.Property(t => t.Name).IsRequired();
             builder.Property(t => t.Description).IsRequired();
+            builder.Property(t => t.FamilyMoney).IsRequired();
 
             builder.HasMany(t => t.MafiaMembers)
                 .WithOne()

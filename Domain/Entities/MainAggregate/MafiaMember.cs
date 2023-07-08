@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using Domain.Entities.ShopAggregate;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Entities
+namespace Domain.Entities.MainAggregate
 {
     public class MafiaMember
     {
@@ -26,13 +27,13 @@ namespace Domain.Entities
 
         [Required(ErrorMessage = "Обязательное поле")]
         [StringLength(20, ErrorMessage = "Неверно указан номер телефона")]
-        [Phone (ErrorMessage = "Некорректный номер телефона")]
+        [Phone(ErrorMessage = "Некорректный номер телефона")]
         public string Phone { get; private set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
         public int MafiaFamilyId { get; private set; }
 
-        public int? OrderShopId { get; set; }
+        public virtual ICollection<OrderShop> OrderShops { get; private set; }
 
         public MafiaMember(string name, string surname, string patronymic, string birthday, string phone, int mafiaFamilyId)
         {
@@ -42,7 +43,7 @@ namespace Domain.Entities
             Birthday = birthday;
             Phone = phone;
             MafiaFamilyId = mafiaFamilyId;
-            OrderShopId = null;
+            OrderShops = new HashSet<OrderShop>();
         }
 
     }

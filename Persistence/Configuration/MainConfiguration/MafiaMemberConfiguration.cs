@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.MainAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence.Configuration
+namespace Persistence.Configuration.MainConfiguration
 {
     public class MafiaMemberConfiguration : IEntityTypeConfiguration<MafiaMember>
     {
@@ -22,6 +22,11 @@ namespace Persistence.Configuration
             builder.Property(t => t.Patronymic).IsRequired();
             builder.Property(t => t.Birthday).IsRequired();
             builder.Property(t => t.Phone).IsRequired();
+
+            builder.HasMany(t => t.OrderShops)
+                .WithOne()
+                .HasForeignKey(t => t.MafiaMemberId)
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

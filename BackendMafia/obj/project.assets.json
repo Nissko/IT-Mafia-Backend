@@ -1356,24 +1356,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\niksk\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\niksk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
+      "projectUniqueName": "F:\\Project\\ITMafia\\Backend\\BackendMafia\\BackendMafia.csproj",
       "projectName": "BackendMafia",
-      "projectPath": "D:\\Projects\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
+      "projectPath": "F:\\Project\\ITMafia\\Backend\\BackendMafia\\BackendMafia.csproj",
       "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ITMafia\\BackendMafia\\BackendMafia\\obj\\",
+      "outputPath": "F:\\Project\\ITMafia\\Backend\\BackendMafia\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\niksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1381,7 +1376,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -1389,8 +1383,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj": {
-              "projectPath": "D:\\Projects\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj"
+            "F:\\Project\\ITMafia\\Backend\\Persistence\\Persistence.csproj": {
+              "projectPath": "F:\\Project\\ITMafia\\Backend\\Persistence\\Persistence.csproj"
             }
           }
         }
