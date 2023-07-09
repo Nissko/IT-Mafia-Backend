@@ -1,4 +1,4 @@
-﻿using Domain.Entities.MainAggregate;
+using Domain.Entities.MainAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -22,6 +22,8 @@ namespace Persistence.Configuration.MainConfiguration
             builder.Property(t => t.Patronymic).IsRequired();
             builder.Property(t => t.Birthday).IsRequired();
             builder.Property(t => t.Phone).IsRequired();
+            builder.Property(t => t.Health);
+            builder.Property(t => t.Strength);
 
             builder.HasMany(t => t.OrderShops)
                 .WithOne()
