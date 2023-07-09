@@ -22,3 +22,15 @@ F:\Project\ITMafia\Backend\Domain\obj\Debug\net6.0\Domain.dll
 F:\Project\ITMafia\Backend\Domain\obj\Debug\net6.0\refint\Domain.dll
 F:\Project\ITMafia\Backend\Domain\obj\Debug\net6.0\Domain.pdb
 F:\Project\ITMafia\Backend\Domain\obj\Debug\net6.0\ref\Domain.dll
+F:\Project\ITMafia\BackendMafia\Domain\bin\Debug\net6.0\Domain.deps.json
+F:\Project\ITMafia\BackendMafia\Domain\bin\Debug\net6.0\Domain.dll
+F:\Project\ITMafia\BackendMafia\Domain\bin\Debug\net6.0\Domain.pdb
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.dll
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\refint\Domain.dll
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\Domain.pdb
+F:\Project\ITMafia\BackendMafia\Domain\obj\Debug\net6.0\ref\Domain.dll
