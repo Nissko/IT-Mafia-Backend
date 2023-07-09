@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Persistence.Configuration.ShopConfiguration
 {
-    public class AmmunitipnConfiguration : IEntityTypeConfiguration<Ammunition>
+    public class AmmunitionConfiguration : IEntityTypeConfiguration<Ammunition>
     {
         public void Configure(EntityTypeBuilder<Ammunition> builder)
         {
