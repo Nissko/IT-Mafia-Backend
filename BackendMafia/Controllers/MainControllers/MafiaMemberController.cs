@@ -62,6 +62,8 @@ namespace BackendMafia.Controllers.MainControllers
         [Route("/health/{id:int}/{health:int}")]
         public IActionResult UpdateHealth([FromRoute] int id, [FromRoute] int health)
         {
+            if (health < 0 || health > 100) return BadRequest("Некорректное значение показателя здоровья");
+
             var FindMember = dbMafiaMember.MafiaMembers.Find(id);
 
             if (FindMember != null)
@@ -78,6 +80,8 @@ namespace BackendMafia.Controllers.MainControllers
         [Route("/strength/{id:int}/{strength:int}")]
         public IActionResult UpdateStrength([FromRoute] int id, [FromRoute] int strength)
         {
+            if (strength < 0 || strength > 100) return BadRequest("Некорректное значение показателя силы");
+            
             var FindMember = dbMafiaMember.MafiaMembers.Find(id);
 
             if (FindMember != null)
