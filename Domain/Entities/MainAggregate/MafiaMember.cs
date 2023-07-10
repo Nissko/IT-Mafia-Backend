@@ -30,8 +30,10 @@ namespace Domain.Entities.MainAggregate
         [Phone(ErrorMessage = "Некорректный номер телефона")]
         public string Phone { get; private set; }
 
+        [Range(0, 100, ErrorMessage = "Некоррректное значение здоровья")]
         public int Health { get; set; }
 
+        [Range(0, 100, ErrorMessage = "Некорректное значение силы")]
         public int Strength { get; set; }
 
         [Required(ErrorMessage = "Обязательное поле")]
