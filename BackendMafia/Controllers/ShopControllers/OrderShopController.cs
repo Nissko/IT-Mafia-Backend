@@ -19,10 +19,10 @@ namespace BackendMafia.Controllers.ShopControllers
         private readonly MafiaApiDbContext dbMafiaMember;
         private readonly MafiaApiDbContext dbMafiaFamily;
 
-        public OrderShopController(MafiaApiDbContext dbOrderShop, 
-                                   MafiaApiDbContext dbGun, 
-                                   MafiaApiDbContext dbAmmunition, 
-                                   MafiaApiDbContext dbMafiaMember, 
+        public OrderShopController(MafiaApiDbContext dbOrderShop,
+                                   MafiaApiDbContext dbGun,
+                                   MafiaApiDbContext dbAmmunition,
+                                   MafiaApiDbContext dbMafiaMember,
                                    MafiaApiDbContext dbMafiaFamily)
         {
             this.dbOrderShop = dbOrderShop;
@@ -105,17 +105,21 @@ namespace BackendMafia.Controllers.ShopControllers
 
             //Получение цены патронов
             var AmmunitionDb = dbAmmunition.Ammunitions.SingleOrDefault(x => x.Name == AddOrderShopRequest.AmmunitonName); //Поиск патрон в бд
-            if (AmmunitionDb != null)
+            if (GunDb.Type == "Огнестрельное") //получение типа оружия
             {
-                TotalPrice += AmmunitionDb.Price * AddOrderShopRequest.AmmunitonCount;
-            }
-            else
-            {
-                var error = new SerializableError();
-                error.Add("Стоимость", "Не удалось рассчитать стоимость патронов, проверьте корректность ввода");
+                if (AmmunitionDb != null)
+                {
+                    TotalPrice += AmmunitionDb.Price * AddOrderShopRequest.AmmunitonCount;
+                }
+                else
+                {
+                    var error = new SerializableError();
+                    error.Add("Стоимость", "Не удалось рассчитать стоимость патронов, проверьте корректность ввода");
 
-                return new BadRequestObjectResult(error);
+                    return new BadRequestObjectResult(error);
+                }
             }
+
 
             //Проверка работоспобности расчета стоимости
             if (TotalPrice < 0)
@@ -151,9 +155,12 @@ namespace BackendMafia.Controllers.ShopControllers
                     return new BadRequestObjectResult(error);
                 }
 
-                //Изменение количества патрон
-                AmmunitionDb.Count = AmmunitionDb.Count - AddOrderShopRequest.AmmunitonCount;
-                dbAmmunition.SaveChanges();
+                if (GunDb.Type == "Огнестрельное")
+                {
+                    //Изменение количества патрон
+                    AmmunitionDb.Count = AmmunitionDb.Count - AddOrderShopRequest.AmmunitonCount;
+                    dbAmmunition.SaveChanges();
+                }
 
                 //Изменение бюджета семьи
                 MafiaFamilyDb.FamilyMoney = MafiaFamilyDb.FamilyMoney - TotalPrice;
@@ -207,7 +214,7 @@ namespace BackendMafia.Controllers.ShopControllers
             }
 
             //Если человек хочет купить патроны
-            if(AddOrderShopRequest.AmmunitonCount != 0)
+            if (AddOrderShopRequest.AmmunitonCount != 0)
             {
                 //Поиск патронов в БД
                 var ammunition = dbAmmunition.Ammunitions.SingleOrDefault(x => x.Name == AddOrderShopRequest.AmmunitonName);
@@ -230,7 +237,7 @@ namespace BackendMafia.Controllers.ShopControllers
                     return new BadRequestObjectResult(error);
                 }
             }
-      
+
             return null; // Если все проверки прошли успешно
         }
     }
