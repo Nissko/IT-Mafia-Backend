@@ -178,3 +178,13 @@ F:\Project\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\refint\BackendMafi
 F:\Project\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\BackendMafia.pdb
 F:\Project\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\BackendMafia.genruntimeconfig.cache
 F:\Project\ITMafia\BackendMafia\BackendMafia\obj\Debug\net6.0\ref\BackendMafia.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\UI.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\UI.pdb
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\MediatR.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\MediatR.Contracts.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\System.Web.Http.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+F:\Project\ITMafia\BackendMafia\BackendMafia\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
