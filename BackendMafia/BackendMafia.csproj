@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.8">
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Persistence\Persistence.csproj" />
+    <ProjectReference Include="..\UI\UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\MainControllers\" />
+    <Folder Include="Controllers\ShopControllers\" />
   </ItemGroup>
 
 </Project>

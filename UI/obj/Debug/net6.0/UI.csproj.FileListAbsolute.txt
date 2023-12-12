@@ -1,0 +1,17 @@
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\UI.deps.json
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\UI.dll
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\UI.pdb
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\Domain.dll
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\Persistence.dll
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\Persistence.pdb
+F:\Project\ITMafia\BackendMafia\UI\bin\Debug\net6.0\Domain.pdb
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.csproj.AssemblyReference.cache
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.AssemblyInfoInputs.cache
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.AssemblyInfo.cs
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.csproj.CoreCompileInputs.cache
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.csproj.CopyComplete
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.dll
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\refint\UI.dll
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\UI.pdb
+F:\Project\ITMafia\BackendMafia\UI\obj\Debug\net6.0\ref\UI.dll
