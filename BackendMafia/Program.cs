@@ -15,6 +15,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactPolicy",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000") // Укажите URL вашего React-фронтенда
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 //RegisterDbContext
 builder.Services.AddDbContext<MafiaApiDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
