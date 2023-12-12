@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Project\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj": {}
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\BackendMafia\\BackendMafia.csproj": {}
   },
   "projects": {
-    "F:\\Project\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj": {
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\BackendMafia\\BackendMafia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
+        "projectUniqueName": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\BackendMafia\\BackendMafia.csproj",
         "projectName": "BackendMafia",
-        "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
+        "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\BackendMafia\\BackendMafia.csproj",
         "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\ITMafia\\BackendMafia\\BackendMafia\\obj\\",
+        "outputPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\BackendMafia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\niksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,14 +29,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj": {
-                "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj"
+              "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj"
               },
-              "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj": {
-                "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj"
+              "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj": {
+                "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj"
               },
-              "F:\\Project\\ITMafia\\BackendMafia\\UI\\UI.csproj": {
-                "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\UI\\UI.csproj"
+              "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\UI.csproj": {
+                "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\UI.csproj"
               }
             }
           }
@@ -97,14 +97,14 @@
         }
       }
     },
-    "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj": {
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\obj\\",
+        "outputPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\niksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -152,14 +152,14 @@
         }
       }
     },
-    "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj": {
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj",
+        "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\obj\\",
+        "outputPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\niksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -176,8 +176,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj": {
-                "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj"
+              "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj"
               }
             }
           }
@@ -225,14 +225,14 @@
         }
       }
     },
-    "F:\\Project\\ITMafia\\BackendMafia\\UI\\UI.csproj": {
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\ITMafia\\BackendMafia\\UI\\UI.csproj",
+        "projectUniqueName": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\UI\\UI.csproj",
+        "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\ITMafia\\BackendMafia\\UI\\obj\\",
+        "outputPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\niksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -249,11 +249,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj": {
-                "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj"
+              "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj"
               },
-              "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj": {
-                "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Persistence\\Persistence.csproj"
+              "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj": {
+                "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Persistence\\Persistence.csproj"
               }
             }
           }

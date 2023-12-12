@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6s9Ju14uJ8pLzsCuPmVyurUjbGlhVoNbAlATKBZm5Eo0/DeNNNoZoLiDKniIkfJ2nr67wgTLKrZvuAge72zLow==",
+  "dgSpecHash": "HjJblegaVDQhMov3kSQ/BGKEaNq2wXV37Dil7F/SO/YOgPxboaLUHn+xM/Zfa0NDSfYMERAhY/thMc4No42/YA==",
   "success": true,
-  "projectFilePath": "F:\\Project\\ITMafia\\BackendMafia\\BackendMafia\\BackendMafia.csproj",
+  "projectFilePath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\BackendMafia\\BackendMafia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niksk\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",

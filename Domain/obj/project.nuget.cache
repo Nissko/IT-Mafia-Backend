@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "547cE7VrbgZRmL8C1ZVw8UvGlGHFdVfQRIE2osBnNGtuBSfGz0tf6BFLIyYw8Yu3mJsvv089I5ynl92EoNJXeg==",
+  "dgSpecHash": "etVidhJ+Qlz/QftzrurVgXGbNcPwZND2prQZc068H7MPGWG/KG2yjnzFnmvvYQy1Fw5uVj2C0mGAqP/2Xso+Xw==",
   "success": true,
-  "projectFilePath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

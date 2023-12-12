@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K1Z4qt2Qm2Nx1C8mYaXJLmneqcD1iZtBcvI6EbETDSpFFJekhxMi+3o1Av3gOfnR32XmD78+/uvPTDl5TLfQYA==",
+  "dgSpecHash": "cxlGhkeljJb3pHAb8nXRrVIwz7TiKZqejX5pUBtk7O1Oo2sy4/UGjYDO+SHYaatxQOUdymDCUnJW1btr4ACWSg==",
   "success": true,
-  "projectFilePath": "F:\\Project\\ITMafia\\BackendMafia\\UI\\UI.csproj",
+  "projectFilePath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niksk\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

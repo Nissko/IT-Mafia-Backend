@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj": {}
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj": {
+    "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\ITMafia\\BackendMafia\\Domain\\obj\\",
+        "outputPath": "D:\\Work\\BackendMafia\\IT-Mafia-Backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\niksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
