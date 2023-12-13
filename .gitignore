@@ -345,3 +345,13 @@ packages/
 /UI/obj/project.assets.json
 /UI/obj/project.nuget.cache
 /UI/obj/UI.csproj.nuget.dgspec.json
+/Domain/obj/Debug/net6.0/Domain.assets.cache
+/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Persistence/obj/Debug/net6.0/Persistence.assets.cache
+/Persistence/obj/Debug/net6.0/Persistence.csproj.AssemblyReference.cache
+/Persistence/obj/Debug/net6.0/Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/UI/obj/Debug/net6.0/UI.AssemblyInfo.cs
+/UI/obj/Debug/net6.0/UI.AssemblyInfoInputs.cache
+/UI/obj/Debug/net6.0/UI.assets.cache
+/UI/obj/Debug/net6.0/UI.csproj.AssemblyReference.cache
+/UI/obj/Debug/net6.0/UI.GeneratedMSBuildEditorConfig.editorconfig
