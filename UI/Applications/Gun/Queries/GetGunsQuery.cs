@@ -1,7 +1,4 @@
 ﻿using MediatR;
-using Domain.Entities.ShopAggregate;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
 
 namespace BackendMafia.Applications.Gun.Queries
 {

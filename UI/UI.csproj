@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Applications\Gun\Commands\UpdateGuns\" />
-    <Folder Include="Applications\Gun\Commands\DeleteGuns\" />
   </ItemGroup>
 
   <ItemGroup>

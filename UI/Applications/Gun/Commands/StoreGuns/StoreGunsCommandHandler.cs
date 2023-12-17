@@ -1,15 +1,5 @@
-﻿using Domain.Entities.ShopAggregate;
-using MediatR;
+﻿using MediatR;
 using Persistence;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace UI.Applications.Gun.Commands.StoreGuns
 {

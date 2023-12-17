@@ -1,11 +1,12 @@
 ﻿using MediatR;
 
-namespace UI.Applications.Gun.Commands.StoreGuns
+namespace UI.Applications.Gun.Commands.UpdateGuns
 {
-    public class StoreGunsCommand : IRequest<Unit>
+    public class UpdateGunsCommand : IRequest<Unit>
     {
-        public StoreGunsCommand(string name, int count, string type, string supportAmmo, decimal price)
+        public UpdateGunsCommand(int id, string name, int count, string type, string supportAmmo, decimal price)
         {
+            Id = id;
             Name = name;
             Count = count;
             Type = type;
@@ -13,6 +14,7 @@ namespace UI.Applications.Gun.Commands.StoreGuns
             Price = price;
         }
 
+        public int Id { get; }
         public string Name { get; private set; }
         public int Count { get; private set; }
         public string Type { get; private set; }

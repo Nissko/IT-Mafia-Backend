@@ -3,7 +3,9 @@ using Domain.Entities.ShopAggregate;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using UI.Applications.Gun.Commands.DeleteGuns;
 using UI.Applications.Gun.Commands.StoreGuns;
+using UI.Applications.Gun.Commands.UpdateGuns;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,8 @@ builder.Services.AddDbContext<MafiaApiDbContext>(options => options.UseNpgsql(bu
 //RegisterMediatR Methods
 builder.Services.AddTransient<IRequestHandler<GetGunsQuery, IEnumerable<Gun>>, GetGunsQueryHandler>();
 builder.Services.AddTransient<IRequestHandler<StoreGunsCommand, Unit>, StoreGunsCommandHandler>();
+builder.Services.AddTransient<IRequestHandler<UpdateGunsCommand, Unit>, UpdateGunsCommandHandler>();
+builder.Services.AddTransient<IRequestHandler<DeleteGunsCommand, Unit>, DeleteGunsCommandHandler>();
 
 var app = builder.Build();
 
